@@ -19,6 +19,16 @@
       line-height: 1.7;
     }
 
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
     /* ヘッダー */
     header {
       padding: 32px 24px;
@@ -348,15 +358,15 @@
 </head>
 <body>
 
-  <header>
+  <header class="fade-in">
     <a class="logo" href="index.html">Portfolio</a>
   </header>
 
-  <div class="hero">
+  <div class="hero fade-in">
 <h1 class="hero-title" style="white-space: nowrap;">あなたの魅力を 多くの人へ。</h1>
   </div>
 
-  <div class="section">
+  <div class="section fade-in">
     <h2 class="section-title">Gallery</h2>
     <div class="works-grid">
       <a class="work-card" href="https://k-matsumoto527.github.io/my-website/" target="_blank" rel="noopener noreferrer">
@@ -395,7 +405,7 @@
     </div>
   </div>
 
-  <div class="features">
+  <div class="features fade-in">
     <div class="features-inner">
       <h2 class="section-title">Features</h2>
       <div class="features-grid">
@@ -423,7 +433,7 @@
     </div>
   </div>
 
-  <div class="contact" id="contact">
+  <div class="contact fade-in" id="contact">
     <div class="section-label">Contact</div>
     <h2 class="contact-title">お気軽にご相談ください</h2>
     <p class="contact-desc">ホームページ制作に関するご質問・お見積りはお気軽にどうぞ。</p>
@@ -444,7 +454,7 @@
     </form>
   </div>
 
-  <footer>
+  <footer class="fade-in">
     © 2026 Web Portfolio
   </footer>
 
