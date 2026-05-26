@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ホームページ制作 — 制作実績</title>
+  <title>ホームページ制作 — サンプル</title>
   <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after {
@@ -131,22 +131,19 @@
     }
 
     .work-card-preview {
+      position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
       background: #070810;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.6);
-      letter-spacing: 0.1em;
       overflow: hidden;
     }
 
     .work-card-preview iframe {
-      width: 200%;
-      height: 200%;
-      transform: scale(0.5);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1280px;
+      height: 720px;
       transform-origin: top left;
       border: none;
       pointer-events: none;
@@ -282,7 +279,7 @@
 
   <div class="section">
     <div class="section-label">Works</div>
-    <h2 class="section-title">制作実績</h2>
+    <h2 class="section-title">サンプル</h2>
     <div class="works-grid">
       <a class="work-card" href="https://k-matsumoto527.github.io/my-website/" target="_blank" rel="noopener noreferrer">
         <div class="work-card-preview">
@@ -335,6 +332,19 @@
   <footer>
     © 2026 Web Portfolio
   </footer>
+
+<script>
+  function scaleIframes() {
+    document.querySelectorAll(".work-card-preview").forEach(function(preview) {
+      var iframe = preview.querySelector("iframe");
+      if (!iframe) return;
+      var scale = preview.offsetWidth / 1280;
+      iframe.style.transform = "scale(" + scale + ")";
+    });
+  }
+  window.addEventListener("load", scaleIframes);
+  window.addEventListener("resize", scaleIframes);
+</script>
 
 </body>
 </html>
