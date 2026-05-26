@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ホームページ制作 — サンプル</title>
-  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>ホームページ制作 — Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -14,15 +14,15 @@
 
     body {
       font-family: 'Shippori Mincho', serif;
-      background: #ffffff;
-      color: #1a1a1a;
+      background: #0e0e0e;
+      color: #e8e8e8;
       line-height: 1.7;
     }
 
     /* ヘッダー */
     header {
       padding: 32px 24px;
-      border-bottom: 1px solid #e5e5e5;
+      border-bottom: 1px solid #2a2a2a;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -31,11 +31,13 @@
     }
 
     .logo {
-      font-size: 1.1rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      color: #1a1a1a;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      color: #e8e8e8;
       text-decoration: none;
+      text-transform: uppercase;
     }
 
     /* ヒーロー */
@@ -47,24 +49,27 @@
     }
 
     .hero-label {
-      font-size: 0.8rem;
-      letter-spacing: 0.2em;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.25em;
       color: #888;
       text-transform: uppercase;
       margin-bottom: 20px;
     }
 
     .hero-title {
-      font-size: 2.4rem;
-      font-weight: 700;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
       line-height: 1.4;
       margin-bottom: 20px;
-      color: #1a1a1a;
+      color: #f0f0f0;
+      letter-spacing: 0.05em;
     }
 
     .hero-desc {
-      font-size: 1rem;
-      color: #555;
+      font-size: 0.95rem;
+      color: #999;
       max-width: 480px;
       margin: 0 auto 36px;
     }
@@ -72,18 +77,19 @@
     .hero-cta {
       display: inline-block;
       padding: 14px 40px;
-      background: #1a1a1a;
-      color: #ffffff;
+      background: transparent;
+      color: #e8e8e8;
       text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      border-radius: 4px;
-      transition: background 0.2s, transform 0.15s;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      border: 1px solid #555;
+      border-radius: 2px;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
     }
 
     .hero-cta:hover {
-      background: #333;
+      border-color: #e8e8e8;
       transform: translateY(-2px);
     }
 
@@ -95,18 +101,21 @@
     }
 
     .section-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      color: #888;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      color: #666;
       text-transform: uppercase;
       margin-bottom: 12px;
     }
 
     .section-title {
-      font-size: 1.6rem;
-      font-weight: 700;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
       margin-bottom: 40px;
-      color: #1a1a1a;
+      color: #f0f0f0;
+      letter-spacing: 0.05em;
     }
 
     .works-grid {
@@ -116,17 +125,18 @@
     }
 
     .work-card {
-      border: 1px solid #e5e5e5;
-      border-radius: 12px;
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
       overflow: hidden;
-      transition: box-shadow 0.2s, transform 0.15s;
+      transition: box-shadow 0.2s, transform 0.15s, border-color 0.2s;
       text-decoration: none;
       color: inherit;
       display: block;
     }
 
     .work-card:hover {
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+      border-color: #555;
       transform: translateY(-4px);
     }
 
@@ -151,32 +161,39 @@
 
     .work-card-body {
       padding: 20px;
+      background: #161616;
     }
 
     .work-card-tag {
-      font-size: 0.72rem;
-      color: #888;
-      letter-spacing: 0.1em;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.75rem;
+      color: #666;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
       margin-bottom: 6px;
     }
 
     .work-card-title {
-      font-size: 1rem;
-      font-weight: 700;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
       margin-bottom: 6px;
+      color: #e8e8e8;
     }
 
     .work-card-desc {
       font-size: 0.85rem;
-      color: #666;
+      color: #777;
       line-height: 1.6;
     }
 
     /* 特徴セクション */
     .features {
-      background: #f8f8f8;
+      background: #111111;
       padding: 64px 24px;
+      border-top: 1px solid #2a2a2a;
+      border-bottom: 1px solid #2a2a2a;
     }
 
     .features-inner {
@@ -201,14 +218,17 @@
     }
 
     .feature-title {
-      font-size: 0.95rem;
-      font-weight: 700;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
       margin-bottom: 8px;
+      color: #e8e8e8;
     }
 
     .feature-desc {
       font-size: 0.85rem;
-      color: #666;
+      color: #777;
     }
 
     /* お問い合わせ */
@@ -220,42 +240,89 @@
     }
 
     .contact-title {
-      font-size: 1.6rem;
-      font-weight: 700;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
       margin-bottom: 16px;
+      letter-spacing: 0.05em;
+      color: #f0f0f0;
     }
 
     .contact-desc {
       font-size: 0.95rem;
-      color: #555;
+      color: #888;
       margin-bottom: 32px;
     }
 
     .contact-btn {
       display: inline-block;
       padding: 14px 48px;
-      background: #1a1a1a;
-      color: #ffffff;
+      background: transparent;
+      color: #e8e8e8;
       text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      border-radius: 4px;
-      transition: background 0.2s, transform 0.15s;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      border: 1px solid #555;
+      border-radius: 2px;
+      transition: border-color 0.2s, transform 0.15s;
     }
 
     .contact-btn:hover {
-      background: #333;
+      border-color: #e8e8e8;
       transform: translateY(-2px);
+    }
+
+    .contact-form {
+      text-align: left;
+      margin-top: 40px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      color: #888;
+      margin-bottom: 8px;
+    }
+
+    .form-input {
+      width: 100%;
+      background: #161616;
+      border: 1px solid #2a2a2a;
+      border-radius: 2px;
+      padding: 12px 16px;
+      color: #e8e8e8;
+      font-family: 'Shippori Mincho', serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-input:focus {
+      border-color: #555;
+    }
+
+    .form-input::placeholder {
+      color: #444;
+    }
+
+    .form-textarea {
+      height: 140px;
+      resize: vertical;
     }
 
     /* フッター */
     footer {
-      border-top: 1px solid #e5e5e5;
+      border-top: 1px solid #2a2a2a;
       padding: 32px 24px;
       text-align: center;
       font-size: 0.8rem;
-      color: #aaa;
+      color: #555;
     }
 
     @media (max-width: 600px) {
@@ -279,7 +346,7 @@
 
   <div class="section">
     <div class="section-label">Works</div>
-    <h2 class="section-title">サンプル</h2>
+    <h2 class="section-title">Gallery</h2>
     <div class="works-grid">
       <a class="work-card" href="https://k-matsumoto527.github.io/my-website/" target="_blank" rel="noopener noreferrer">
         <div class="work-card-preview">
@@ -324,9 +391,24 @@
   </div>
 
   <div class="contact">
+    <div class="section-label">Contact</div>
     <h2 class="contact-title">お気軽にご相談ください</h2>
-    <p class="contact-desc">ホームページ制作に関するご質問・お見積りはお気軽にお問い合わせください。</p>
-    <a class="contact-btn" href="mailto:">お問い合わせ</a>
+    <p class="contact-desc">ホームページ制作に関するご質問・お見積りはお気軽にどうぞ。</p>
+    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="form-group">
+        <label class="form-label">お名前</label>
+        <input class="form-input" type="text" name="name" placeholder="田代 太郎" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">メールアドレス</label>
+        <input class="form-input" type="email" name="email" placeholder="example@email.com" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">お問い合わせ内容</label>
+        <textarea class="form-input form-textarea" name="message" placeholder="ご要望・ご質問をお書きください" required></textarea>
+      </div>
+      <button class="contact-btn" type="submit">送信する</button>
+    </form>
   </div>
 
   <footer>
