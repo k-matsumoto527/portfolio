@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ホームページ制作 — 制作実績</title>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Shippori Mincho', serif;
+      background: #ffffff;
+      color: #1a1a1a;
+      line-height: 1.7;
+    }
+
+    /* ヘッダー */
+    header {
+      padding: 32px 24px;
+      border-bottom: 1px solid #e5e5e5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: #1a1a1a;
+      text-decoration: none;
+    }
+
+    /* ヒーロー */
+    .hero {
+      text-align: center;
+      padding: 80px 24px 64px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .hero-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      color: #888;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 20px;
+      color: #1a1a1a;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: #555;
+      max-width: 480px;
+      margin: 0 auto 36px;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 14px 40px;
+      background: #1a1a1a;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      border-radius: 4px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .hero-cta:hover {
+      background: #333;
+      transform: translateY(-2px);
+    }
+
+    /* 実績セクション */
+    .section {
+      padding: 64px 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: #888;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      color: #1a1a1a;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 32px;
+    }
+
+    .work-card {
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.15s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .work-card:hover {
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      transform: translateY(-4px);
+    }
+
+    .work-card-preview {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #070810;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.1em;
+      overflow: hidden;
+    }
+
+    .work-card-preview iframe {
+      width: 200%;
+      height: 200%;
+      transform: scale(0.5);
+      transform-origin: top left;
+      border: none;
+      pointer-events: none;
+    }
+
+    .work-card-body {
+      padding: 20px;
+    }
+
+    .work-card-tag {
+      font-size: 0.72rem;
+      color: #888;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .work-card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .work-card-desc {
+      font-size: 0.85rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* 特徴セクション */
+    .features {
+      background: #f8f8f8;
+      padding: 64px 24px;
+    }
+
+    .features-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .feature-item {
+      text-align: center;
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .feature-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .feature-desc {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    /* お問い合わせ */
+    .contact {
+      padding: 64px 24px;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .contact-desc {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 32px;
+    }
+
+    .contact-btn {
+      display: inline-block;
+      padding: 14px 48px;
+      background: #1a1a1a;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      border-radius: 4px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .contact-btn:hover {
+      background: #333;
+      transform: translateY(-2px);
+    }
+
+    /* フッター */
+    footer {
+      border-top: 1px solid #e5e5e5;
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    @media (max-width: 600px) {
+      .hero-title { font-size: 1.8rem; }
+      .section-title { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a class="logo" href="index.html">Web Portfolio</a>
+  </header>
+
+  <div class="hero">
+    <div class="hero-label">Homepage Creation</div>
+    <h1 class="hero-title">お店の魅力を、<br>ウェブで伝える。</h1>
+    <p class="hero-desc">飲食店・小売店・サービス業など、あらゆる業種向けにオリジナルホームページを制作します。</p>
+    <a class="hero-cta" href="mailto:">お問い合わせ</a>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Works</div>
+    <h2 class="section-title">制作実績</h2>
+    <div class="works-grid">
+      <a class="work-card" href="https://k-matsumoto527.github.io/my-website/" target="_blank" rel="noopener noreferrer">
+        <div class="work-card-preview">
+          <iframe src="https://k-matsumoto527.github.io/my-website/" title="Dining TASHIRO" scrolling="no"></iframe>
+        </div>
+        <div class="work-card-body">
+          <div class="work-card-tag">飲食店 / Bar</div>
+          <div class="work-card-title">Dining TASHIRO</div>
+          <div class="work-card-desc">料理とお酒のお店のホームページ。メニュー紹介・ブログ・店舗情報を掲載。</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="features">
+    <div class="features-inner">
+      <div class="section-label">Features</div>
+      <h2 class="section-title">制作の特徴</h2>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">📱</div>
+          <div class="feature-title">スマホ対応</div>
+          <div class="feature-desc">どんな端末でも美しく表示されるレスポンシブデザイン</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🎨</div>
+          <div class="feature-title">オリジナルデザイン</div>
+          <div class="feature-desc">お店の雰囲気・ブランドに合わせたデザインをご提案</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">⚡</div>
+          <div class="feature-title">高速表示</div>
+          <div class="feature-desc">軽量な設計でストレスなく閲覧できるサイトを制作</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🔄</div>
+          <div class="feature-title">更新サポート</div>
+          <div class="feature-desc">メニューや写真の更新など、制作後のサポートも対応</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact">
+    <h2 class="contact-title">お気軽にご相談ください</h2>
+    <p class="contact-desc">ホームページ制作に関するご質問・お見積りはお気軽にお問い合わせください。</p>
+    <a class="contact-btn" href="mailto:">お問い合わせ</a>
+  </div>
+
+  <footer>
+    © 2026 Web Portfolio
+  </footer>
+
+</body>
+</html>
