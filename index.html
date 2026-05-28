@@ -3,150 +3,224 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ホームページ制作 — Gallery</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>ホームページ制作 — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #faf8f5;
+      --beige: #f0ebe3;
+      --beige-dark: #e4ddd4;
+      --warm-gray: #8a8480;
+      --dark: #2c2926;
+      --accent: #b89a7a;
+      --accent-light: #d4b896;
+      --white: #ffffff;
     }
+
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Shippori Mincho', serif;
-      background: #0e0e0e;
-      color: #e8e8e8;
-      line-height: 1.7;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.8;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     .fade-in {
       opacity: 0;
-      animation: fadeIn 2.5s ease forwards;
     }
 
-    /* ヘッダー */
+    .fade-in.visible {
+      animation: fadeIn 1s ease forwards;
+    }
+
+    /* ===== HEADER ===== */
     header {
-      padding: 32px 24px;
-      border-bottom: 1px solid #2a2a2a;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 24px 48px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      max-width: 1000px;
-      margin: 0 auto;
+      max-width: 100%;
+      background: rgba(250,248,245,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--beige-dark);
     }
 
     .logo {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 400;
-      letter-spacing: 0.15em;
-      color: #e8e8e8;
+      letter-spacing: 0.2em;
+      color: var(--dark);
       text-decoration: none;
       text-transform: uppercase;
     }
 
-    /* ヒーロー */
+    .header-contact {
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 8px 20px;
+      border: 1px solid var(--accent);
+      border-radius: 40px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .header-contact:hover {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    /* ===== HERO ===== */
     .hero {
       text-align: center;
-      padding: 80px 24px 32px;
-      max-width: 700px;
+      padding: 96px 24px 64px;
+      max-width: 720px;
       margin: 0 auto;
     }
 
     .hero-label {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 0.85rem;
-      letter-spacing: 0.25em;
-      color: #888;
+      font-size: 0.78rem;
+      letter-spacing: 0.35em;
+      color: var(--accent);
       text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     .hero-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
+      font-size: clamp(2rem, 5vw, 3.2rem);
       font-weight: 300;
-      line-height: 1.4;
-      margin-bottom: 20px;
-      color: #f0f0f0;
-      letter-spacing: 0.05em;
+      line-height: 1.5;
+      margin-bottom: 24px;
+      color: var(--dark);
+      letter-spacing: 0.04em;
     }
 
     .hero-desc {
-      font-size: 0.95rem;
-      color: #999;
-      max-width: 480px;
-      margin: 0 auto 36px;
+      font-size: 0.92rem;
+      color: var(--warm-gray);
+      max-width: 460px;
+      margin: 0 auto 40px;
+      line-height: 1.9;
     }
 
     .hero-cta {
       display: inline-block;
-      padding: 14px 40px;
-      background: transparent;
-      color: #e8e8e8;
+      padding: 14px 44px;
+      background: var(--accent);
+      color: var(--white);
       text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
+      font-size: 0.82rem;
       letter-spacing: 0.15em;
-      border: 1px solid #555;
-      border-radius: 2px;
-      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+      border-radius: 40px;
+      transition: background 0.2s, transform 0.15s;
     }
 
     .hero-cta:hover {
-      border-color: #e8e8e8;
+      background: #a08060;
       transform: translateY(-2px);
     }
 
-    /* 実績セクション */
+    .hero-scroll {
+      margin-top: 56px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      color: var(--accent);
+      opacity: 0.7;
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      margin-top: 64px;
+      padding-top: 48px;
+      border-top: 1px solid var(--beige-dark);
+    }
+
+    .hero-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: var(--dark);
+      letter-spacing: 0.05em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .hero-stat-label {
+      font-size: 0.75rem;
+      color: var(--warm-gray);
+      letter-spacing: 0.12em;
+    }
+
+    /* ===== GALLERY ===== */
     .section {
-      padding: 40px 24px 80px;
-      max-width: 1000px;
+      padding: 48px 48px 80px;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
     .section-label {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 0.8rem;
-      letter-spacing: 0.25em;
-      color: #666;
+      font-size: 0.72rem;
+      letter-spacing: 0.35em;
+      color: var(--accent);
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .section-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
       font-weight: 300;
       margin-bottom: 40px;
-      color: #f0f0f0;
+      color: var(--dark);
       letter-spacing: 0.05em;
     }
 
     .works-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 32px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 28px;
     }
 
     .work-card {
-      border: 1px solid #2a2a2a;
-      border-radius: 8px;
+      border-radius: 12px;
       overflow: hidden;
-      transition: box-shadow 0.2s, transform 0.15s, border-color 0.2s;
+      transition: box-shadow 0.25s, transform 0.2s;
       text-decoration: none;
       color: inherit;
       display: block;
+      background: var(--white);
+      border: 1px solid var(--beige-dark);
     }
 
     .work-card:hover {
-      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
-      border-color: #555;
+      box-shadow: 0 12px 40px rgba(44,41,38,0.12);
       transform: translateY(-4px);
     }
 
@@ -154,14 +228,13 @@
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
-      background: #070810;
+      background: var(--beige);
       overflow: hidden;
     }
 
     .work-card-preview iframe {
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 1280px;
       height: 720px;
       transform-origin: top left;
@@ -170,14 +243,13 @@
     }
 
     .work-card-body {
-      padding: 20px;
-      background: #161616;
+      padding: 20px 24px 24px;
+      background: var(--white);
     }
 
     .work-card-tag {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.75rem;
-      color: #666;
+      font-size: 0.72rem;
+      color: var(--accent);
       letter-spacing: 0.15em;
       text-transform: uppercase;
       margin-bottom: 6px;
@@ -185,154 +257,17 @@
 
     .work-card-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       font-weight: 400;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       margin-bottom: 6px;
-      color: #e8e8e8;
+      color: var(--dark);
     }
 
     .work-card-desc {
-      font-size: 0.85rem;
-      color: #777;
-      line-height: 1.6;
-    }
-
-    /* 特徴セクション */
-    .features {
-      background: #111111;
-      padding: 40px 24px;
-      border-top: 1px solid #2a2a2a;
-      border-bottom: 1px solid #2a2a2a;
-    }
-
-    .features-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 20px;
-      margin-top: 24px;
-    }
-
-    .feature-item {
-      text-align: center;
-    }
-
-    .feature-icon {
-      font-size: 1.4rem;
-      margin-bottom: 8px;
-    }
-
-    .feature-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.95rem;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      margin-bottom: 6px;
-      color: #e8e8e8;
-    }
-
-    .feature-desc {
-      font-size: 0.8rem;
-      color: #777;
-    }
-
-    /* お問い合わせ */
-    .contact {
-      padding: 64px 24px;
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .contact-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      font-weight: 300;
-      margin-bottom: 16px;
-      letter-spacing: 0.05em;
-      color: #f0f0f0;
-    }
-
-    .contact-desc {
-      font-size: 0.95rem;
-      color: #888;
-      margin-bottom: 32px;
-    }
-
-    .contact-btn {
-      display: inline-block;
-      padding: 14px 48px;
-      background: transparent;
-      color: #e8e8e8;
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      border: 1px solid #555;
-      border-radius: 2px;
-      transition: border-color 0.2s, transform 0.15s;
-    }
-
-    .contact-btn:hover {
-      border-color: #e8e8e8;
-      transform: translateY(-2px);
-    }
-
-    .contact-form {
-      text-align: left;
-      margin-top: 40px;
-    }
-
-    .form-group {
-      margin-bottom: 24px;
-    }
-
-    .form-label {
-      display: block;
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
-      color: #888;
-      margin-bottom: 8px;
-    }
-
-    .form-input {
-      width: 100%;
-      background: #161616;
-      border: 1px solid #2a2a2a;
-      border-radius: 2px;
-      padding: 12px 16px;
-      color: #e8e8e8;
-      font-family: 'Shippori Mincho', serif;
-      font-size: 0.9rem;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    .form-input:focus {
-      border-color: #555;
-    }
-
-    .form-input::placeholder {
-      color: #444;
-    }
-
-    .form-textarea {
-      height: 140px;
-      resize: vertical;
-    }
-
-    /* フッター */
-    footer {
-      border-top: 1px solid #2a2a2a;
-      padding: 32px 24px;
-      text-align: center;
-      font-size: 0.8rem;
-      color: #555;
+      font-size: 0.82rem;
+      color: var(--warm-gray);
+      line-height: 1.7;
     }
 
     .work-card-placeholder {
@@ -346,13 +281,154 @@
       font-size: 1.6rem;
       font-weight: 300;
       letter-spacing: 0.2em;
-      color: rgba(255, 255, 255, 0.4);
+      color: rgba(44,41,38,0.2);
       text-transform: uppercase;
     }
 
+    /* ===== FEATURES ===== */
+    .features {
+      background: var(--beige);
+      padding: 64px 48px;
+      border-top: 1px solid var(--beige-dark);
+      border-bottom: 1px solid var(--beige-dark);
+    }
+
+    .features-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .feature-item {
+      text-align: center;
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--white);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 14px;
+      font-size: 1.3rem;
+      box-shadow: 0 2px 8px rgba(44,41,38,0.06);
+    }
+
+    .feature-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+      color: var(--dark);
+    }
+
+    .feature-desc {
+      font-size: 0.8rem;
+      color: var(--warm-gray);
+      line-height: 1.7;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact {
+      padding: 80px 24px;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 300;
+      margin-bottom: 16px;
+      letter-spacing: 0.05em;
+      color: var(--dark);
+    }
+
+    .contact-desc {
+      font-size: 0.9rem;
+      color: var(--warm-gray);
+      margin-bottom: 40px;
+      line-height: 1.9;
+    }
+
+    .contact-form { text-align: left; }
+
+    .form-group { margin-bottom: 24px; }
+
+    .form-label {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: var(--warm-gray);
+      margin-bottom: 8px;
+    }
+
+    .form-input {
+      width: 100%;
+      background: var(--white);
+      border: 1px solid var(--beige-dark);
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: var(--dark);
+      font-family: 'Shippori Mincho', serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-input:focus { border-color: var(--accent); }
+
+    .form-input::placeholder { color: #c4bdb6; }
+
+    .form-textarea { height: 140px; resize: vertical; }
+
+    .contact-btn {
+      display: inline-block;
+      padding: 14px 48px;
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      cursor: pointer;
+      font-family: 'Shippori Mincho', serif;
+      transition: background 0.2s, transform 0.15s;
+      margin-top: 8px;
+    }
+
+    .contact-btn:hover {
+      background: #a08060;
+      transform: translateY(-2px);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      border-top: 1px solid var(--beige-dark);
+      padding: 32px 48px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--warm-gray);
+      letter-spacing: 0.1em;
+    }
+
     @media (max-width: 600px) {
+      header { padding: 16px 24px; }
+      .section { padding: 48px 24px 64px; }
+      .features { padding: 48px 24px; }
       .hero-title { font-size: 1.8rem; }
-      .section-title { font-size: 1.3rem; }
+      .section-title { font-size: 1.4rem; }
     }
   </style>
 </head>
@@ -360,13 +436,34 @@
 
   <header class="fade-in">
     <a class="logo" href="index.html">Portfolio</a>
+    <a class="header-contact" href="#contact">お問い合わせ</a>
   </header>
 
   <div class="hero fade-in">
-<h1 class="hero-title" style="white-space: nowrap;">あなたの魅力を 多くの人へ。</h1>
+    <p class="hero-label">Web Design & Development</p>
+    <h1 class="hero-title">あなたの魅力を<br>多くの人へ。</h1>
+    <p class="hero-desc">小さなお店や個人事業主のために、丁寧に制作するホームページ。<br>想いを形にし、あなたのお客様に届けます。</p>
+    <a class="hero-cta" href="#contact">まずは相談する</a>
+
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">7日</div>
+        <div class="hero-stat-label">最短納期</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">¥30K〜</div>
+        <div class="hero-stat-label">制作費用</div>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      SCROLL
+    </div>
   </div>
 
   <div class="section fade-in">
+    <p class="section-label">Works</p>
     <h2 class="section-title">Gallery</h2>
     <div class="works-grid">
       <a class="work-card" href="https://k-matsumoto527.github.io/my-website/" target="_blank" rel="noopener noreferrer">
@@ -392,7 +489,7 @@
       </a>
 
       <div class="work-card">
-        <div class="work-card-preview work-card-placeholder" style="background: linear-gradient(135deg, #2d1b00, #4a2f00);">
+        <div class="work-card-preview work-card-placeholder" style="background: linear-gradient(135deg, #ede8e0, #ddd5c8);">
           <span class="placeholder-label">Café</span>
         </div>
         <div class="work-card-body">
@@ -401,13 +498,13 @@
           <div class="work-card-desc">コーヒーメニュー・店舗情報・SNS連携を備えたカフェサイト。</div>
         </div>
       </div>
-
     </div>
   </div>
 
   <div class="features fade-in">
     <div class="features-inner">
-      <h2 class="section-title">Features</h2>
+      <p class="section-label">Features</p>
+      <h2 class="section-title">選ばれる理由</h2>
       <div class="features-grid">
         <div class="feature-item">
           <div class="feature-icon">🎨</div>
@@ -434,7 +531,7 @@
   </div>
 
   <div class="contact fade-in" id="contact">
-    <div class="section-label">Contact</div>
+    <p class="section-label">Contact</p>
     <h2 class="contact-title">お気軽にご相談ください</h2>
     <p class="contact-desc">ホームページ制作に関するご質問・お見積りはお気軽にどうぞ。</p>
     <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
@@ -459,6 +556,21 @@
   </footer>
 
 <script>
+  // スクロールフェードイン
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll(".fade-in").forEach(function(el) {
+    observer.observe(el);
+  });
+
+  // iframeスケール
   function scaleIframes() {
     document.querySelectorAll(".work-card-preview").forEach(function(preview) {
       var iframe = preview.querySelector("iframe");
