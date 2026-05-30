@@ -423,12 +423,45 @@
       letter-spacing: 0.1em;
     }
 
-    @media (max-width: 600px) {
+    /* タブレット */
+    @media (max-width: 768px) {
       header { padding: 16px 24px; }
-      .section { padding: 48px 24px 64px; }
+
+      .hero { padding: 72px 24px 48px; }
+      .hero-title { font-size: 2rem; }
+      .hero-stats { gap: 28px; }
+
+      .section { padding: 40px 24px 64px; }
+      .section-title { font-size: 1.6rem; }
+
+      .works-grid { grid-template-columns: 1fr; }
+
       .features { padding: 48px 24px; }
-      .hero-title { font-size: 1.8rem; }
+      .features-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+
+      .contact { padding: 60px 24px; }
+    }
+
+    /* スマートフォン */
+    @media (max-width: 480px) {
+      header { padding: 14px 16px; }
+      .logo { font-size: 1rem; }
+      .header-contact { padding: 6px 14px; font-size: 0.72rem; }
+
+      .hero { padding: 60px 16px 40px; }
+      .hero-title { font-size: 1.6rem; }
+      .hero-desc { font-size: 0.85rem; }
+      .hero-stats { flex-direction: column; gap: 20px; }
+      .hero-stat-num { font-size: 2rem; }
+
+      .section { padding: 32px 16px 48px; }
       .section-title { font-size: 1.4rem; }
+
+      .features-grid { grid-template-columns: 1fr; }
+
+      .contact { padding: 48px 16px; }
+
+      footer { padding: 24px 16px; }
     }
   </style>
 </head>
