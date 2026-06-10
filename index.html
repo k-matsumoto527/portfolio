@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ホームページ制作 — Portfolio</title>
   <meta name="description" content="岐阜・愛知を中心に個人店・小規模事業者向けのホームページ制作を承ります。¥50,000〜・最短14日納品。まずはお気軽にご相談ください。">
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ホームページ制作 — Portfolio">
+  <meta property="og:description" content="岐阜・愛知を中心に個人店・小規模事業者向けのホームページ制作を承ります。¥50,000〜・最短14日納品。まずはお気軽にご相談ください。">
+  <meta property="og:image" content="image/flow.png">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ホームページ制作 — Portfolio">
+  <meta name="twitter:description" content="岐阜・愛知を中心に個人店・小規模事業者向けのホームページ制作を承ります。¥50,000〜・最短14日納品。まずはお気軽にご相談ください。">
+  <meta name="twitter:image" content="image/flow.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -55,6 +67,72 @@
       background: rgba(250,248,245,0.92);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--beige-dark);
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .header-nav-link {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      color: var(--warm-gray);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .header-nav-link:hover {
+      color: var(--dark);
+    }
+
+    /* ハンバーガー */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--dark);
+      transition: transform 0.25s, opacity 0.25s;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(250,248,245,0.97);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      color: var(--dark);
+      text-decoration: none;
+      text-transform: uppercase;
     }
 
     .logo {
@@ -338,6 +416,60 @@
       line-height: 1.7;
     }
 
+    /* ===== FLOW ===== */
+    .flow-steps {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+
+    .flow-step {
+      flex: 1;
+      min-width: 160px;
+      max-width: 220px;
+      text-align: center;
+      padding: 0 12px;
+    }
+
+    .flow-step-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .flow-step-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .flow-step-desc {
+      font-size: 0.78rem;
+      color: var(--warm-gray);
+      line-height: 1.7;
+    }
+
+    .flow-arrow {
+      font-size: 1.2rem;
+      color: var(--accent-light);
+      padding-top: 28px;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 600px) {
+      .flow-steps { flex-direction: column; align-items: center; gap: 24px; }
+      .flow-arrow { transform: rotate(90deg); padding-top: 0; }
+    }
+
     /* ===== CONTACT ===== */
     .contact {
       padding: 80px 24px;
@@ -427,6 +559,8 @@
     /* タブレット */
     @media (max-width: 768px) {
       header { padding: 16px 24px; }
+      .header-nav { display: none; }
+      .hamburger { display: flex; }
 
       .hero { padding: 72px 24px 48px; }
       .hero-title { font-size: 2rem; }
@@ -470,8 +604,23 @@
 
   <header class="fade-in">
     <a class="logo" href="index.html">Portfolio</a>
-    <a class="header-contact" href="#contact">お問い合わせ</a>
+    <nav class="header-nav">
+      <a class="header-nav-link" href="#works">Works</a>
+      <a class="header-nav-link" href="#features">Features</a>
+      <a class="header-nav-link" href="#flow">Flow</a>
+      <a class="header-contact" href="#contact">お問い合わせ</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
   </header>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#works" class="mobile-menu-link">Works</a>
+    <a href="#features" class="mobile-menu-link">Features</a>
+    <a href="#flow" class="mobile-menu-link">Flow</a>
+    <a href="#contact" class="mobile-menu-link">Contact</a>
+  </div>
 
   <div class="hero fade-in">
     <p class="hero-label">Web Design & Development</p>
@@ -496,12 +645,12 @@
     </div>
   </div>
 
-  <div class="section fade-in">
+  <div class="section fade-in" id="works">
     <p class="section-label">Works</p>
     <div class="works-grid">
       <a class="work-card" href="https://k-matsumoto527.github.io/my-website/" target="_blank" rel="noopener noreferrer">
         <div class="work-card-preview">
-          <iframe src="https://k-matsumoto527.github.io/my-website/" title="Dining TASHIRO" scrolling="no"></iframe>
+          <iframe src="https://k-matsumoto527.github.io/my-website/" title="Dining TASHIRO" scrolling="no" loading="lazy"></iframe>
         </div>
         <div class="work-card-body">
           <div class="work-card-tag">飲食店 / Bar</div>
@@ -511,7 +660,7 @@
 
       <a class="work-card" href="https://k-matsumoto527.github.io/izakaya-sample/" target="_blank" rel="noopener noreferrer">
         <div class="work-card-preview">
-          <iframe src="https://k-matsumoto527.github.io/izakaya-sample/" title="居酒屋 燈" scrolling="no"></iframe>
+          <iframe src="https://k-matsumoto527.github.io/izakaya-sample/" title="居酒屋 燈" scrolling="no" loading="lazy"></iframe>
         </div>
         <div class="work-card-body">
           <div class="work-card-tag">居酒屋 / Izakaya</div>
@@ -521,7 +670,7 @@
 
       <a class="work-card" href="https://k-matsumoto527.github.io/salon-sample/salon-sample.html" target="_blank" rel="noopener noreferrer">
         <div class="work-card-preview">
-          <iframe src="https://k-matsumoto527.github.io/salon-sample/salon-sample.html" title="hair salon Lumière" scrolling="no"></iframe>
+          <iframe src="https://k-matsumoto527.github.io/salon-sample/salon-sample.html" title="hair salon Lumière" scrolling="no" loading="lazy"></iframe>
         </div>
         <div class="work-card-body">
           <div class="work-card-tag">美容院 / Hair</div>
@@ -529,10 +678,10 @@
         </div>
       </a>
     </div>
-    <p style="margin-top:24px;font-size:0.78rem;color:#8a8480;letter-spacing:0.05em;text-align:right;">※ 上記のホームページはデザインサンプルです。そのため一部機能は未実装となります。</p>
+    <p style="margin-top:24px;font-size:0.78rem;color:#8a8480;letter-spacing:0.05em;text-align:right;">※ 制作イメージをご覧いただけるサンプルです。</p>
   </div>
 
-  <div class="features fade-in">
+  <div class="features fade-in" id="features">
     <div class="features-inner">
       <p class="section-label">Features</p>
       <div class="features-grid">
@@ -556,9 +705,35 @@
     </div>
   </div>
 
-  <div class="fade-in" style="padding:80px 48px;max-width:1100px;margin:0 auto;text-align:center;">
-    <p style="font-size:0.72rem;letter-spacing:0.3em;color:var(--accent);text-transform:uppercase;margin-bottom:24px;">Flow</p>
-    <img src="image/flow.png" alt="納品までのフロー" style="width:100%;border-radius:12px;">
+  <div class="fade-in" id="flow" style="padding:80px 48px;max-width:1100px;margin:0 auto;text-align:center;">
+    <p style="font-size:0.72rem;letter-spacing:0.3em;color:var(--accent);text-transform:uppercase;margin-bottom:10px;">Flow</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:300;letter-spacing:0.05em;color:var(--dark);margin-bottom:40px;">ご依頼の流れ</p>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-step-num">01</div>
+        <div class="flow-step-title">お問い合わせ</div>
+        <div class="flow-step-desc">フォームまたはメールでお気軽にご連絡ください。料金・期間など何でもお聞きします。</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-step-num">02</div>
+        <div class="flow-step-title">ヒアリング</div>
+        <div class="flow-step-desc">ご要望・ターゲット・参考サイトなどをお聞きし、方向性を決めます。</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-step-num">03</div>
+        <div class="flow-step-title">デザイン制作</div>
+        <div class="flow-step-desc">デザイン案をご提示します。修正は2回まで無料で対応します。</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-step-num">04</div>
+        <div class="flow-step-title">コーディング・納品</div>
+        <div class="flow-step-desc">承認後にコーディングを行い、最短14日で納品。公開後のサポートも承ります。</div>
+      </div>
+    </div>
+    <img src="image/flow.png" alt="納品までのフロー図" style="width:100%;border-radius:12px;margin-top:48px;">
   </div>
 
   <div class="contact fade-in" id="contact">
@@ -567,16 +742,16 @@
     <p class="contact-desc">「料金はどのくらい？」「どんなサイトが作れる？」など、些細なことでもお気軽にどうぞ。通常2〜3営業日以内にご返信します。</p>
     <form class="contact-form" action="https://formspree.io/f/maqkzjek" method="POST">
       <div class="form-group">
-        <label class="form-label">お名前</label>
-        <input class="form-input" type="text" name="name" placeholder="田代 太郎" required>
+        <label class="form-label" for="contact-name">お名前</label>
+        <input class="form-input" type="text" id="contact-name" name="name" placeholder="田代 太郎" required>
       </div>
       <div class="form-group">
-        <label class="form-label">メールアドレス</label>
-        <input class="form-input" type="email" name="email" placeholder="example@email.com" required>
+        <label class="form-label" for="contact-email">メールアドレス</label>
+        <input class="form-input" type="email" id="contact-email" name="email" placeholder="example@email.com" required>
       </div>
       <div class="form-group">
-        <label class="form-label">お問い合わせ内容</label>
-        <textarea class="form-input form-textarea" name="message" placeholder="ご要望・ご質問をお書きください" required></textarea>
+        <label class="form-label" for="contact-message">お問い合わせ内容</label>
+        <textarea class="form-input form-textarea" id="contact-message" name="message" placeholder="ご要望・ご質問をお書きください" required></textarea>
       </div>
       <button class="contact-btn" type="submit">送信する</button>
     </form>
@@ -599,6 +774,26 @@
 
   document.querySelectorAll(".fade-in").forEach(function(el) {
     observer.observe(el);
+  });
+
+  // ハンバーガーメニュー
+  var hamburger = document.getElementById("hamburger");
+  var mobileMenu = document.getElementById("mobile-menu");
+
+  hamburger.addEventListener("click", function() {
+    var isOpen = mobileMenu.classList.toggle("open");
+    hamburger.classList.toggle("open", isOpen);
+    hamburger.setAttribute("aria-label", isOpen ? "メニューを閉じる" : "メニューを開く");
+    document.body.style.overflow = isOpen ? "hidden" : "";
+  });
+
+  mobileMenu.querySelectorAll("a").forEach(function(link) {
+    link.addEventListener("click", function() {
+      mobileMenu.classList.remove("open");
+      hamburger.classList.remove("open");
+      hamburger.setAttribute("aria-label", "メニューを開く");
+      document.body.style.overflow = "";
+    });
   });
 
   // iframeスケール
