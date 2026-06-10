@@ -367,6 +367,68 @@
       text-transform: uppercase;
     }
 
+    /* ===== ABOUT ===== */
+    .about-members {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 8px;
+    }
+
+    .about-member {
+      text-align: center;
+      background: var(--white);
+      border: 1px solid var(--beige-dark);
+      border-radius: 12px;
+      padding: 40px 32px;
+    }
+
+    .about-photo-placeholder {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: var(--beige);
+      border: 1px solid var(--beige-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      color: rgba(44,41,38,0.25);
+      text-transform: uppercase;
+    }
+
+    .about-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .about-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: var(--dark);
+      margin-bottom: 18px;
+    }
+
+    .about-bio {
+      font-size: 0.86rem;
+      color: var(--warm-gray);
+      line-height: 1.9;
+      text-align: left;
+    }
+
+    @media (max-width: 768px) {
+      .about-members { grid-template-columns: 1fr; gap: 24px; }
+    }
+
     /* ===== FEATURES ===== */
     .features {
       background: var(--beige);
@@ -609,6 +671,7 @@
     <a class="logo" href="index.html">Portfolio</a>
     <nav class="header-nav">
       <a class="header-nav-link" href="#works">Works</a>
+      <a class="header-nav-link" href="#about">About</a>
       <a class="header-nav-link" href="#features">Features</a>
       <a class="header-nav-link" href="#flow">Flow</a>
       <a class="header-contact" href="#contact">お問い合わせ</a>
@@ -620,6 +683,7 @@
 
   <div class="mobile-menu" id="mobile-menu">
     <a href="#works" class="mobile-menu-link">Works</a>
+    <a href="#about" class="mobile-menu-link">About</a>
     <a href="#features" class="mobile-menu-link">Features</a>
     <a href="#flow" class="mobile-menu-link">Flow</a>
     <a href="#contact" class="mobile-menu-link">Contact</a>
@@ -682,6 +746,30 @@
       </a>
     </div>
     <p style="margin-top:24px;font-size:0.78rem;color:#8a8480;letter-spacing:0.05em;text-align:right;">※ 制作イメージをご覧いただけるサンプルです。</p>
+  </div>
+
+  <!-- ▼ プロフィール（ダミー：お名前・写真・自己紹介を実際の内容に差し替えてください） -->
+  <div class="section fade-in" id="about">
+    <p class="section-label">About</p>
+    <h2 class="section-title">私たちについて</h2>
+    <div class="about-members">
+      <div class="about-member">
+        <div class="about-photo-placeholder">Photo</div>
+        <p class="about-role">営業担当 / Sales</p>
+        <h3 class="about-name">Y.T</h3>
+        <p class="about-bio">
+          お問い合わせの窓口からヒアリング、ご提案までを担当します。「ホームページは欲しいけれど、何から始めればいいか分からない」——そんな段階からでも、お店の想いやご要望を丁寧にお聞きし、最適なプランをご提案します。料金や進め方など、些細なことでもお気軽にご相談ください。
+        </p>
+      </div>
+      <div class="about-member">
+        <div class="about-photo-placeholder">Photo</div>
+        <p class="about-role">制作担当 / Designer</p>
+        <h3 class="about-name">K.M</h3>
+        <p class="about-bio">
+          デザインからコーディング、公開後のサポートまでを担当します。岐阜・愛知を拠点に、低コスト・短納期で“ちゃんと伝わる”サイトづくりを大切にしています。お店の雰囲気や魅力がそのまま伝わるデザインをご提案し、公開後の更新まで長くお付き合いします。
+        </p>
+      </div>
+    </div>
   </div>
 
   <div class="features fade-in" id="features">
